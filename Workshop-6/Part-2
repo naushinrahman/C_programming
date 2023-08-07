@@ -1,0 +1,761 @@
+/*/////////////////////////////////////////////////////////////////////////
+                          Workshop - #5 (P2)
+Full Name  : Naushin Rahman
+Student ID#: 144079225
+Email      : nrahman30@myseneca.ca
+Section    : NDD
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+/////////////////////////////////////////////////////////////////////////*/
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#define MIN_YEAR 2012
+#define MAX_YEAR 2022
+#define LOG_DAYS 3
+
+#include <stdio.h>
+
+int main(void)
+{
+
+    const int JAN = 1, DEC = 12;
+    int n = 1, year, month, day = 1;
+    double mornRating = 0.0, evenRating = 0.0, mornSum = 0, evenSum = 0, overallSum, mornAvg, evenAvg, overallAvg;
+
+    printf("General Well-being Log\n");
+    printf("======================\n");
+
+    while (n == 1)
+    {
+        printf("Set the year and month for the well-being log (YYYY MM): ");
+        scanf("%d %d", &year, &month);
+        if (year < MIN_YEAR || year > MAX_YEAR)
+        {
+            printf("   ERROR: The year must be between 2012 and 2022 inclusive\n");
+            n = 1;
+            if (month < JAN || month > DEC)
+            {
+                printf("   ERROR: Jan.(1) - Dec.(12)\n");
+                n = 1;
+            }
+        }
+        else if (month < JAN || month > DEC)
+        {
+            printf("   ERROR: Jan.(1) - Dec.(12)\n");
+            n = 1;
+        }
+        else
+        {
+            printf("\n*** Log date set! ***\n");
+            n = 0;
+
+            switch (month)
+            {
+            case 1:
+     
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-JAN-%02d\n", year, day);
+                    n = 1;
+                
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+                    
+                }
+                n = 0;                         
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+                
+            case 2:
+                
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-FEB-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;                      
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 3:
+                
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-MAR-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {                       
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;          
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 4:
+
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-APR-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {                
+                            
+                            mornSum = mornSum + mornRating; 
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;                     
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+            
+            case 5:
+                
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-MAY-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating; 
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;               
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 6:
+                
+                for (; day <= LOG_DAYS; day++) {
+                    printf("\n%d-JUN-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1) {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0) {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1) {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0) {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else { 
+                            evenSum = evenSum + evenRating; 
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 7:
+                
+                for (; day <= LOG_DAYS; day++) {
+                    printf("\n%d-JUL-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1) {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0) {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else {
+                            mornSum = mornSum + mornRating; 
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1) {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0) {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else {
+                            evenSum = evenSum + evenRating; 
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;              
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 8:
+
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-AUG-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 9:
+       
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-SEP-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 10:
+                
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-OCT-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 11:
+                
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-NOV-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            case 12:
+             
+                for (; day <= LOG_DAYS; day++)
+                {
+                    printf("\n%d-DEC-%02d\n", year, day);
+                    n = 1;
+
+                    while (n == 1)
+                    {
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &mornRating);
+                        if (mornRating < 0.0 || mornRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            mornSum = mornSum + mornRating;
+                            n = 0;
+                        }
+                    }
+                    n = 1;
+                    while (n == 1)
+                    {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evenRating);
+                        if (evenRating < 0.0 || evenRating > 5.0)
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                            n = 1;
+                        }
+                        else
+                        {
+                            evenSum = evenSum + evenRating;
+                            n = 0;
+                        }
+                    }
+
+                }
+                n = 0;
+                overallSum = mornSum + evenSum;
+                mornAvg = mornSum / 3;
+                evenAvg = evenSum / 3;
+                overallAvg = (mornAvg + evenAvg) / 2;
+
+                printf("\n\nSummary\n");
+                printf("=======\n");
+                printf("Morning total rating: %6.3lf", mornSum);
+                printf("\nEvening total rating: %6.3lf", evenSum);
+                printf("\n----------------------------\n");
+                printf("Overall total rating: %6.3lf", overallSum);
+                printf("\n\nAverage morning rating: %4.1lf", mornAvg);
+                printf("\nAverage evening rating: %4.1lf", evenAvg);
+                printf("\n----------------------------\n");
+                printf("Average overall rating: %4.1lf", overallAvg);
+                printf("\n");
+                break;
+
+            default:
+                break;
+            }
+            n = 0;
+
+        }
+    }
+
+    return 0;
+}
